@@ -11,43 +11,50 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.A. in Computer Science and Mathematics (Double Major), The College of Wooster, 2018
+* M.S. in Computer Science and Engineering, The Ohio State University, 2022
+* Ph.D in Computer Science and Engineering, The Ohio State University, 2024 (expected)
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Summer 2022: Software Engineering Intern at Cerebras Systems
+  * Designed and implemented a fully automatic checkpoint/restore system for deep learning jobs
+  * Supervisor: Vignesh Trichy Ravi
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+* Summer 2021: Software Engineering Intern at Google
+  * Built a service to validate network device configurations
+  * Supervisor: Samantha Lo
+
+* Summer 2020: Software Engineering Intern at Cloudflare
+  * Implemented a pipeline for processing and visualizing NEL reports
+  * Supervisor: Lee Valentine
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming Languages:
+  * C++
+  * Go
+  * Python
+  * Java
+  * Shell
+  * Rust
+  * JavaScript
+* Git
+* Infrastructure and Automation:
+  * Kubernetes and Docker
+  * Terraform
+* Cloud Technologies:
+  * AWS
+  * GCP
+  * Cloudflare
+* TLA+
 
 Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
+
 Teaching
 ======
   <ul>{% for post in site.teaching %}
@@ -56,4 +63,5 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Student Volunteer at IoTDI '22
+* Session Chair at ICUAS '21

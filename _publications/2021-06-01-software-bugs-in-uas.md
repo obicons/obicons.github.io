@@ -1,5 +1,5 @@
 ---
-title: "A Study on Software Bugs in Unmanned Aerial Systems."
+title: "A Study on Software Bugs in Unmanned Aerial Systems"
 collection: publications
 permalink: /publication/2021-06-01-software-bugs-in-uas
 excerpt: 'This paper studies over 200 previously reported bugs in UAS control firmware.'
