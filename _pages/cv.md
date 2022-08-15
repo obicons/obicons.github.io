@@ -55,6 +55,12 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
+Honors and Awards
+======
+* Eleanor Quinlan Memorial Award for Excellence in Teaching, '21
+* University Fellowship, '18
+* Foster Prize in Mathematics, '18
+
 Teaching
 ======
   <ul>{% for post in site.teaching %}
