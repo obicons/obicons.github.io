@@ -57,6 +57,7 @@ Publications
 
 Honors and Awards
 ======
+* Ohio State University CSE Research Poster Award, '23
 * Eleanor Quinlan Memorial Award for Excellence in Teaching, '21
 * University Fellowship, '18
 * Foster Prize in Mathematics, '18

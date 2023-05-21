@@ -8,7 +8,12 @@ redirect_from:
   - /about.html
 ---
 
-I am a fifth year PhD candidate in The Ohio State University's CSE department, where I help developers understand challenges faced by emerging technology & I create tools to help developers build reliable software systems. Currently, I study reliability challenges in autonomous vehicle firmware. My advisors are Drs. Feng Qin and Christopher Stewart.
+I am a sixth year PhD candidate in The Ohio State University's
+Computer Science and Engineering department. I like to call my
+research interests *gradual formal methods*: Observe real software
+in situ to construct a principled model to drive decision-making. 
+I've applied this technique to autonomous vehicle firmware, and more recently
+to deep learning frameworks. My advisors are Drs. Feng Qin and Christopher Stewart.
 
 
 ## Recent Blog Posts
