@@ -1,5 +1,5 @@
 ---
-title: 'Using F* to Formally Verify a LeetCode Problem'
+title: 'Using F* to Formally Verify Programs'
 date: 2023-05-20
 permalink: /posts/2023/05/fstar-leetcode
 tags:
@@ -14,20 +14,20 @@ than ever before. [F\*](https://www.fstar-lang.org/), developed by Microsoft Res
 groundbreaking functional language that combines dependent types and
 proof-oriented features. By bridging the gap between programming and
 proving, F\* facilitates a gradual adoption of formal methods by
-developers. In this post, I will provide an introduction to the
-fundamentals of F* and demonstrate how we can leverage its
+software engineers. In this post, I will provide an introduction to the
+basics of F* and demonstrate how we can leverage its
 capabilities to verify a solution to a LeetCode problem. I can't cover
 all the background material needed to understand F* in this post. I
 assume that you have some experience in a language like Haskell or
 OCaml.
 
-This writing has three goals. First, I want to showcase how
-far formal methods have come. Second, there is not a lot of material
-discussing how to use formal methods. I hope others are able to learn
-from my mistakes, and newcomers can pick up some proof-engineering
-strategies. Finally, I want to draw attention to some current
-pain-points for the sake of improving current formal methods
-research.
+This writing has three goals. First, I want to showcase how far formal
+methods have come. Second, there is not a lot of material discussing
+how to use formal methods, and particularly F\*. I hope others are
+able to learn from my mistakes, and newcomers can pick up some
+proof-engineering strategies. Finally, I want to draw attention to
+some current pain-points for the sake of improving current formal
+methods research.
 
 Contents:
 1. [Basics of F*](#fstar-basics)
@@ -212,6 +212,8 @@ let _ = assert (forall (x: nat) (y: nat) .
 ```
 
 In this case, it does.
+
+
 
 
 ## [LeetCode Problem: Capacity to Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) <a name="leetcode-problem"/>
@@ -748,7 +750,71 @@ As an exercise: It is up to the reader to demonstrate that the
 `min_bound_invariant` and `max_bound_invariant` hold under the initial
 conditions set by `ship_within_days`.
 
+
 ## Takeaways <a name="takeaways"></a>
+
+### The Good
+F\* has an amazing [Emacs
+mode](https://github.com/FStarLang/fstar-mode.el). It uses unicode
+symbols to make identifiers like `forall` and `exists` render as the
+appropriate logic symbols. It also allows you to verify code as you
+work inside of Emacs itself. Finally, it provides error squiggles.
+
+F\* can automatically find many proofs, more so than similar tools
+that I've experimented with (e.g., Coq and Isabelle). In that sense,
+F\* seems easier to adopt than more mainstream tools.
+
+
+### The Bad
+Error messages are bad. [From my experience using
+Z3](https://maxtaylor.dev/publication/2022-08-01-sa4u), this is
+because Z3 does not generate very good unsatisfiable cores. To expand:
+You provide Z3 a bunch of logical formulae. Z3 attempts to
+find an *interpretation* (i.e., a mapping of variables to values) that
+satisfies the formulae. When Z3 definitely cannot find an
+interpretation, the formulae are *unsatisfiable*. For the sake of
+error reporting, you might be interested in *why* formulae are
+unsatisfiable. What is the smallest number of formulae you can remove
+from the solver that makes the others satisfiable?
+
+Unfortunately, things are not so simple for several reasons:
+1. Z3 slows down when you enable the generation of unsatisfiable
+   cores.
+2. The unsatisfiable cores that Z3 generates are not minimal.
+3. Just because a formula appears in a minimal unsatisfiable core does
+   not mean that it necessarily is relevant to the fix.
+       
+Meanwhile, tools that use Z3 have to somehow manage the relationship
+between Z3 variables and their own semantic domain. This adds to the
+challenge of making good error messages with Z3.
+
+
+### The Ugly
+Z3 is sensitive to a lot more than you may expect. A common idiom in
+F\* is to test if adding a lemma helps you with a proof, like so:
+```
+let lemma_a (x: unit) : Lemma (ensures some_formula) = 
+    admit ()
+
+let lemma_b (x: unit) : Lemma (ensures some_formula) = 
+    // Other lemmas not shown.
+    lemma_a ();
+    ()
+```
+
+Here, `lemma_b` uses `lemma_a` in its proof. Now, assume that Z3 is
+able to find a proof of `lemma_b`. So, we proceed to prove
+`lemma_a`. Very rarely, I have noticed that changing the proof of
+`lemma_a` causes Z3 to no longer be able to prove
+`lemma_b`. Obviously, this is surprising because the `lemma_b` does
+not logically depend on the specific proof of `lemma_a`.
+
+Documentation and examples are also lacking. There are not a lot of
+high quality educational resources available today.
+
+
+
+## Conclusion
 I found F\* to be immensely usable. While error messages are not the
 best, this is really a limitation of the underlying SMT solver. From
 experience, Z3's unsatisfiable cores are complex to handle. And moving
@@ -765,6 +831,7 @@ The ecosystem of F\* is young. The resources I've used are:
 * Read the papers. It's okay to not understand everything -- learn
   what you can, save the paper, and eventually you'll come back to and
   things will make more sense.
+* The book "Certified Programming with Dependent Types."
 * The book "Types and Programming Languages" provides good background
   PL theory.
 * The book "The Little Typer" provides a good background on dependent types.
