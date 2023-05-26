@@ -29,6 +29,10 @@ proof-engineering strategies. Finally, I want to draw attention to
 some current pain-points for the sake of improving current formal
 methods research.
 
+[The F\* tutorial](https://www.fstar-lang.org/tutorial/) has an editor
+you can interact with in your browser. You can follow along with these
+examples there, without downloading any additional software.
+
 Contents:
 1. [Basics of F*](#fstar-basics)
   * [Functions](#fstar-basics-functions)
@@ -219,7 +223,7 @@ In this case, it does.
 ## [LeetCode Problem: Capacity to Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/) <a name="leetcode-problem"/>
 The problem we're going to solve and verify is the [Capacity to
 Ship Packages within D
-Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/). You're
+Days problem](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/). You're
 given `weights` (an array of positive numbers representing the weights of
 items), and `days` (the maximum number of days you have to ship all
 the items). These items must be loaded onto a ship with a capacity of
