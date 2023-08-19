@@ -1,6 +1,6 @@
 ---
 title: 'A Concept and Template Meta-programming Approach to Session Types in C++'
-date: 2023-05-20
+date: 2023-08-19
 permalink: /posts/2023/05/cpp-session-types
 tags:
   - types
