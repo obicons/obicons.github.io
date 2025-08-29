@@ -8,13 +8,15 @@ redirect_from:
   - /about.html
 ---
 
-I am currently a formal methods scientist at Idaho National Laboratory (INL). I like to call my
-research interests *gradual formal methods*: Observe real software
-in situ to construct a principled model that drives decision-making. 
-I've applied this technique to autonomous vehicle firmware, and more recently
-to deep learning frameworks. 
+I am an assistant professor at Boise State University.
+My research interests are at the intersection of cybersecurity, software engineering, and formal methods.
+Society depends on physical systems (e.g., critical infrastructure like water treatment plants, robotic systems) that are increasingly integrated with cyber controls that contain vulnerabilities.
+These vulnerabilities should be eliminated by improving the state-of-the-art of software engineering.
+This can be accomplished by leveraging results from formal methods, a field that uses mathematically rigorous techniques to analyze systems, to improve our standards of practice.
 
-Prior to joining INL, I was a student at The Ohio State University.  My advisors are Drs. Feng Qin and Christopher Stewart.
+Prior to joining Boise State, I was a formal methods scientist at Idaho National Laboratory, where I maintain a joint appointment.
+Before Idaho National Laboratory, I was a student at The Ohio State University.
+My advisors are Drs. Feng Qin and Christopher Stewart.
 
 
 ## Recent Blog Posts
